@@ -1,5 +1,16 @@
 {% extends "layout.html" %}
 {% block content %}
 <h1 class="text-lg">Add Contact</h1>
+<form class="flex flex-col" action="/contacts/new" method="post">
+	<label for="firstName">First name</label>
+	<input class="rounded bg-slate-200" id="firstName" type="text" name="firstName" value="">
+	<label for="lastName">Last name</label>
+	<input class="rounded bg-slate-200" id="lastName" type="text" name="lastName" value="">
+	<label for="email">Email</label>
+	<input class="rounded bg-slate-200" id="email" type="email" name="email" value="">
+	<label for="phone">Phone</label>
+	<input class="rounded bg-slate-200" id="phone" type="tel" name="phone" value="">
+	<button class="rounded bg-sky-500 text-white">Save</button>
+</form>
 <a class="text-blue-500" href="/contacts">Back to contacts</a>
 {% endblock %}
