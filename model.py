@@ -19,8 +19,8 @@ class Contact:
 
     @classmethod
     def load_db(cls):
-        with open("dummy_contacts.json", 'r') as users_file:
-            contacts = json.load(users_file)
+        with open("dummy_contacts.json", 'r') as contacts_file:
+            contacts = json.load(contacts_file)
             for c in contacts:
                 cls.db[c["id"]] = Contact(c["id"], c["firstName"], c["lastName"], c["email"], c["phone"])
 
