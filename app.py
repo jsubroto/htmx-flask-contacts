@@ -1,4 +1,4 @@
-from flask import Flask, redirect, render_template
+from flask import Flask, redirect, render_template, request
 from model import Contact
 
 Contact.load_db()
@@ -11,4 +11,10 @@ def index():
 
 @app.route("/contacts")
 def contacts():
-    return render_template("index.html", contacts=Contact.get_all())
+    q = request.args.get("q")
+    print(q)
+    if q == "":
+        contacts = Contact.get_all()
+    else:
+        contacts = Contact.search(q)
+    return render_template("index.html", contacts=contacts)

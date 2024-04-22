@@ -22,3 +22,14 @@ class Contact:
     @classmethod
     def get_all(cls):
         return list(cls.db.values())
+
+    @classmethod
+    def search(cls, search_text):
+        def is_match(full_text, search_text=search_text):
+            return full_text is not None and search_text in full_text
+
+        results = []
+        for c in cls.db.values():
+            if is_match(c.first_name) or is_match(c.last_name) or is_match(c.email) or is_match(c.phone):
+                results.append(c)
+        return results
