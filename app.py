@@ -9,8 +9,8 @@ app = Flask(__name__)
 def index():
     return redirect("/contacts")
 
-@app.route("/contacts", methods=["GET"])
-def contacts_get():
+@app.route("/contacts") 
+def contacts():
     q = request.args.get("q")
     if q == "":
         contacts = Contact.get_all()
@@ -18,6 +18,6 @@ def contacts_get():
         contacts = Contact.search(q)
     return render_template("index.html", contacts=contacts)
 
-@app.route("/contacts", methods=["POST"])
-def contacts_post():
-    pass
+@app.route("/contacts/new")
+def contacts_new_get():
+    return render_template("new.html")
