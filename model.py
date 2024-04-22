@@ -14,7 +14,7 @@ class Contact:
 
     def save(self):
         max_id = max(contact.id for contact in Contact.db.values())
-        self.id = max_id
+        self.id = max_id + 1
         Contact.db[self.id] = self
 
     @classmethod
