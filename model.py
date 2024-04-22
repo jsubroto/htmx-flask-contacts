@@ -16,6 +16,7 @@ class Contact:
         max_id = max(contact.id for contact in Contact.db.values())
         self.id = max_id + 1
         Contact.db[self.id] = self
+        Contact.save_db()
 
     @classmethod
     def load_db(cls):
@@ -38,3 +39,8 @@ class Contact:
             if is_match(c.first_name) or is_match(c.last_name) or is_match(c.email) or is_match(c.phone):
                 results.append(c)
         return results
+
+    @classmethod
+    def save_db(cls):
+        with open("dummy_contacts.json", 'w') as write_file:
+            json.dump([c.__dict__ for c in cls.db.values()], write_file)
