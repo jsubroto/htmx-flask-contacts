@@ -18,6 +18,11 @@ def contacts():
         contacts = Contact.search(q)
     return render_template("index.html", contacts=contacts)
 
-@app.route("/contacts/new")
+@app.route("/contacts/new", methods=["GET"])
 def contacts_new_get():
     return render_template("new.html")
+
+@app.route("/contacts/new", methods=["POST"])
+def contacts_new_post():
+    print(request.form)
+    return redirect("/contacts")
