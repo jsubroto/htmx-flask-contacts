@@ -10,7 +10,7 @@
 		<h1>Contacts</h1>
 		<form>
 			<label for="search"></label>
-			<input id="search" type="search" name="q" value="">
+			<input id="search" type="search" name="q" value={{ request.args.get("q") or '' }}>
 			<input type="submit" value="Search">
 		</form>
 		<table>
