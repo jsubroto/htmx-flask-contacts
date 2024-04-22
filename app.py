@@ -20,10 +20,12 @@ def contacts():
 
 @app.route("/contacts/new", methods=["GET"])
 def contacts_new_get():
-    return render_template("new.html")
+    return render_template("new.html", contact=Contact())
 
 @app.route("/contacts/new", methods=["POST"])
 def contacts_new_post():
     c = Contact(None, request.form["firstName"], request.form["lastName"], request.form["email"], request.form["phone"])
-    c.save()
-    return redirect("/contacts")
+    if c.save():
+        return redirect("/contacts")
+    else:
+        return render_template("new.html", contact=c)

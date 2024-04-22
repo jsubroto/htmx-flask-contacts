@@ -11,12 +11,23 @@ class Contact:
         self.last_name = last_name
         self.email = email
         self.phone = phone
+        self.errors = {}
 
     def save(self):
+        if not self.first_name:
+            self.errors["first_name"] = "First name is required"
+        if not self.last_name:
+            self.errors["last_name"] = "Last name is required"
+        if not self.email:
+            self.errors["email"] = "Email is required"
+        if not self.phone:
+            self.errors["phone"] = "Phone is required"
+        if self.errors: return
         max_id = max(contact.id for contact in Contact.db.values())
         self.id = max_id + 1
         Contact.db[self.id] = self
         Contact.save_db()
+        return True
 
     @classmethod
     def load_db(cls):
