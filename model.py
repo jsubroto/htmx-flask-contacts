@@ -52,4 +52,4 @@ class Contact:
                 "phone": c.phone
             })
         with open("dummy_contacts.json", 'w') as write_file:
-            json.dump(res, write_file)
+            json.dump(res, write_file, indent=2)
