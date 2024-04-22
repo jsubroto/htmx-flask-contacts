@@ -42,14 +42,11 @@ class Contact:
 
     @classmethod
     def save_db(cls):
-        res = []
-        for c in cls.db.values():
-            res.append({
+        with open("dummy_contacts.json", 'w') as write_file:
+            json.dump([{
                 "id": c.id,
                 "firstName": c.first_name,
                 "lastName": c.last_name,
                 "email": c.email,
                 "phone": c.phone
-            })
-        with open("dummy_contacts.json", 'w') as write_file:
-            json.dump(res, write_file, indent=2)
+            } for c in cls.db.values()], write_file, indent=2)
