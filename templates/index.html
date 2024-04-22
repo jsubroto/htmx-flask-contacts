@@ -6,12 +6,12 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<script src="https://cdn.tailwindcss.com"></script>
 	</head>
-	<body>
+	<body class="m-10">
 		<h1 class="text-lg">Contacts</h1>
 		<form action="/contacts" method="get">
 			<label for="search"></label>
-			<input id="search" type="search" name="q" value="{{ request.args.get("q") }}">
-			<input type="submit" value="Search">
+			<input class="rounded bg-slate-200 p-2" id="search" type="search" name="q" value="{{ request.args.get("q") }}">
+			<input class="rounded bg-sky-500 text-white p-2" type="submit" value="Search">
 		</form>
 		<table>
 			<tr>
