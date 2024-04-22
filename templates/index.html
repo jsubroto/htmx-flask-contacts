@@ -13,6 +13,7 @@
 			<input class="rounded bg-slate-200 p-2" id="search" type="search" name="q" value="{{ request.args.get("q") }}">
 			<input class="rounded bg-sky-500 text-white p-2" type="submit" value="Search">
 		</form>
+		{% if contacts %}
 		<table>
 			<tr class="border-b">
 				<th>First name</th>
@@ -29,5 +30,6 @@
 			</tr>
 			{% endfor %}
 		</table>
+		{% endif %}
 	</body>
 </html>
