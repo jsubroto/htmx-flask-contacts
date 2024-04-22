@@ -4,10 +4,10 @@
 		<title></title>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<link href="css/style.css" rel="stylesheet">
+		<script src="https://cdn.tailwindcss.com"></script>
 	</head>
 	<body>
-		<h1>Contacts</h1>
+		<h1 class="text-lg">Contacts</h1>
 		<form action="/contacts" method="get">
 			<label for="search"></label>
 			<input id="search" type="search" name="q" value="{{ request.args.get("q") }}">
