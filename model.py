@@ -26,7 +26,7 @@ class Contact:
     @classmethod
     def search(cls, search_text):
         def is_match(full_text, search_text=search_text):
-            return full_text is not None and search_text in full_text
+            return full_text is not None and search_text.lower() in full_text.lower()
 
         results = []
         for c in cls.db.values():
