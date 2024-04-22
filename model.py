@@ -22,7 +22,8 @@ class Contact:
             self.errors["email"] = "Email is required"
         if not self.phone:
             self.errors["phone"] = "Phone is required"
-        if self.errors: return
+        if self.errors:
+            return
         max_id = max(contact.id for contact in Contact.db.values())
         self.id = max_id + 1
         Contact.db[self.id] = self
