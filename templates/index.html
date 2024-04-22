@@ -15,12 +15,15 @@
 		</form>
 		{% if contacts %}
 		<table>
-			<tr class="border-b">
+			<thead class="border-b">
+			<tr>
 				<th>First name</th>
 				<th>Last name</th>
 				<th>Email</th>
 				<th>Phone</th>
 			</tr>
+			</thead>
+			<tbody>
 			{% for contact in contacts %}
 			<tr>
 				<td>{{ contact.first_name }}</td>
@@ -29,6 +32,7 @@
 				<td>{{ contact.phone }}</td>
 			</tr>
 			{% endfor %}
+			</tbody>
 		</table>
 		{% endif %}
 	</body>
