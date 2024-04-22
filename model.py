@@ -12,6 +12,11 @@ class Contact:
         self.email = email
         self.phone = phone
 
+    def save(self):
+        max_id = max(contact.id for contact in Contact.db.values())
+        self.id = max_id
+        Contact.db[self.id] = self
+
     @classmethod
     def load_db(cls):
         with open("dummy_contacts.json", 'r') as users_file:

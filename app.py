@@ -24,5 +24,6 @@ def contacts_new_get():
 
 @app.route("/contacts/new", methods=["POST"])
 def contacts_new_post():
-    print(request.form)
+    c = Contact(None, request.form["firstName"], request.form["lastName"], request.form["email"], request.form["phone"])
+    c.save()
     return redirect("/contacts")
