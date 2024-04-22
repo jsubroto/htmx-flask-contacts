@@ -1,4 +1,4 @@
-from flask import Flask, redirect
+from flask import Flask, redirect, render_template
 
 app = Flask(__name__)
 
@@ -8,4 +8,4 @@ def index():
 
 @app.route("/contacts")
 def contacts():
-    return "Contacts"
+    return render_template("index.html")
