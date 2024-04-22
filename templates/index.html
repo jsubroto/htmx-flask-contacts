@@ -3,7 +3,7 @@
 <h1 class="text-lg">Contacts</h1>
 <form action="/contacts" method="get">
 	<label for="search"></label>
-	<input class="rounded bg-slate-200 p-2" id="search" type="search" name="q" value="{{ request.args.get("q") }}">
+	<input class="rounded bg-slate-200 p-2" id="search" type="search" name="q" value="{{ request.args.get("q") or '' }}">
 	<input class="rounded bg-sky-500 text-white p-2" type="submit" value="Search">
 </form>
 {% if contacts %}
