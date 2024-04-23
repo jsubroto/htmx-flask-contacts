@@ -36,5 +36,5 @@ def contacts_new_post():
 
 
 @app.route("/contacts/<int:contact_id>")
-def view(contact_id):
-    return f"Contact id: {contact_id}"
+def contacts_view(contact_id):
+    return render_template("view.html", contact=Contact.get_by_id(contact_id))

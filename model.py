@@ -65,3 +65,7 @@ class Contact:
                 "email": c.email,
                 "phone": c.phone
             } for c in cls.db.values()], write_file, indent=2)
+
+    @classmethod
+    def get_by_id(cls, contact_id):
+        return cls.db[contact_id]

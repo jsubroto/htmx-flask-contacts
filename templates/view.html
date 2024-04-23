@@ -1,0 +1,11 @@
+{% extends "layout.html" %}
+{% block content %}
+{% if contact %}
+<article>
+	<h1 class="text-lg">{{ contact.first_name }} {{ contact.last_name }}</h1>
+	<p>{{ contact.email }}</p>
+	<p>{{ contact.phone }}</p>
+</article>
+{% endif %}
+<a class="text-blue-500" href="/contacts">Back to contacts</a>
+{% endblock %}
