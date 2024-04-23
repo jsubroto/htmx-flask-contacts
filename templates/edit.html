@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 {% block content %}
 <form action="/contacts/{{ contact.id }}/edit" method="post">
-	<fieldset class="flex flex-col">
+	<fieldset class="flex flex-col gap-2 w-1/2">
 		<legend class="text-lg">Edit Contact</legend>
 		<label for="firstName">First name</label>
 		<input class="rounded bg-slate-800" id="firstName" type="text" name="firstName" value="{{ contact.first_name }}">
