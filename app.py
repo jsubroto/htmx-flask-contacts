@@ -5,9 +5,11 @@ Contact.load_db()
 
 app = Flask(__name__)
 
+
 @app.route("/")
 def index():
     return redirect("/contacts")
+
 
 @app.route("/contacts") 
 def contacts():
@@ -18,9 +20,11 @@ def contacts():
         contacts = Contact.search(q)
     return render_template("index.html", contacts=contacts)
 
+
 @app.route("/contacts/new", methods=["GET"])
 def contacts_new_get():
     return render_template("new.html", contact=Contact())
+
 
 @app.route("/contacts/new", methods=["POST"])
 def contacts_new_post():
@@ -29,3 +33,8 @@ def contacts_new_post():
         return redirect("/contacts")
     else:
         return render_template("new.html", contact=c)
+
+
+@app.route("/contacts/<int:contact_id>")
+def view(contact_id):
+    return f"Contact id: {contact_id}"
