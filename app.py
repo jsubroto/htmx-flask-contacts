@@ -11,7 +11,7 @@ def index():
     return redirect("/contacts")
 
 
-@app.route("/contacts") 
+@app.route("/contacts")
 def contacts():
     q = request.args.get("q")
     if q is None:
@@ -38,3 +38,8 @@ def contacts_new_post():
 @app.route("/contacts/<int:contact_id>")
 def contacts_view(contact_id):
     return render_template("view.html", contact=Contact.get_by_id(contact_id))
+
+
+@app.route("/contacts/<int:contact_id>/edit")
+def edit(contact_id):
+    return render_template("edit.html", contact=Contact.get_by_id(contact_id))
