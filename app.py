@@ -1,9 +1,10 @@
-from flask import Flask, redirect, render_template, request
+from flask import Flask, redirect, render_template, request, flash
 from model import Contact
 
 Contact.load_db()
 
 app = Flask(__name__)
+app.secret_key = b"`7C3}4C'ze!i"
 
 
 @app.route("/")
@@ -50,7 +51,7 @@ def contacts_edit_post(contact_id):
     c = Contact.get_by_id(contact_id)
     c.update(request.form["firstName"], request.form["lastName"], request.form["email"], request.form["phone"])
     if c.save():
-        print(contact_id)
+        flash("Updated Contact")
         return redirect(f"/contacts/{c.id}")
     else:
         return render_template("edit.html", contact=c)
@@ -59,4 +60,5 @@ def contacts_edit_post(contact_id):
 @app.route("/contacts/<int:contact_id>/delete", methods=["POST"])
 def contacts_delete(contact_id):
     Contact.delete_by_id(contact_id)
+    flash("Deleted Contact")
     return redirect("/contacts")
