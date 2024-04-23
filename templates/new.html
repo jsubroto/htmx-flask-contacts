@@ -3,16 +3,16 @@
 <h1 class="text-lg">Add Contact</h1>
 <form class="flex flex-col" action="/contacts/new" method="post">
 	<label for="firstName">First name</label>
-	<input class="rounded bg-slate-800" id="firstName" type="text" name="firstName" value="">
+	<input class="rounded bg-slate-800" id="firstName" type="text" name="firstName" value="{{ contact.first_name }}">
 	<label class="text-red-500" for="firstName">{{ contact.errors.first_name }}</label>
 	<label for="lastName">Last name</label>
-	<input class="rounded bg-slate-800" id="lastName" type="text" name="lastName" value="">
+	<input class="rounded bg-slate-800" id="lastName" type="text" name="lastName" value="{{ contact.last_name }}">
 	<label class="text-red-500" for="lastName">{{ contact.errors.last_name }}</label>
 	<label for="email">Email</label>
-	<input class="rounded bg-slate-800" id="email" type="email" name="email" value="">
+	<input class="rounded bg-slate-800" id="email" type="email" name="email" value="{{ contact.email }}">
 	<label class="text-red-500" for="email">{{ contact.errors.email }}</label>
 	<label for="phone">Phone</label>
-	<input class="rounded bg-slate-800" id="phone" type="tel" name="phone" value="">
+	<input class="rounded bg-slate-800" id="phone" type="tel" name="phone" value="{{ contact.phone }}">
 	<label class="text-red-500" for="phone">{{ contact.errors.phone }}</label>
 	<button class="rounded bg-slate-500 text-white hover:cursor-pointer">Save</button>
 </form>
