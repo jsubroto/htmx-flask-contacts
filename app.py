@@ -40,6 +40,17 @@ def contacts_view(contact_id):
     return render_template("view.html", contact=Contact.get_by_id(contact_id))
 
 
-@app.route("/contacts/<int:contact_id>/edit")
-def edit(contact_id):
+@app.route("/contacts/<int:contact_id>/edit", methods=["GET"])
+def contacts_edit_get(contact_id):
     return render_template("edit.html", contact=Contact.get_by_id(contact_id))
+
+
+@app.route("/contacts/<int:contact_id>/edit", methods=["POST"])
+def contacts_edit_post(contact_id):
+    c = Contact.get_by_id(contact_id)
+    c.update(request.form["firstName"], request.form["lastName"], request.form["email"], request.form["phone"])
+    if c.save():
+        print(contact_id)
+        return redirect(f"/contacts/{c.id}")
+    else:
+        return render_template("edit.html", contact=c)

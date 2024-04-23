@@ -14,6 +14,7 @@ class Contact:
         self.errors = {}
 
     def save(self):
+        self.errors = {}
         if not self.first_name:
             self.errors["first_name"] = "First name is required"
         if not self.last_name:
@@ -32,6 +33,12 @@ class Contact:
         Contact.db[self.id] = self
         Contact.save_db()
         return True
+
+    def update(self, first_name, last_name, email, phone):
+        self.first_name = first_name
+        self.last_name = last_name
+        self.email = email
+        self.phone = phone
 
     @classmethod
     def load_db(cls):
