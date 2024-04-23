@@ -77,3 +77,8 @@ class Contact:
     @classmethod
     def get_by_id(cls, contact_id):
         return cls.db[contact_id]
+
+    @classmethod
+    def delete_by_id(cls, contact_id):
+        del cls.db[contact_id]
+        Contact.save_db()

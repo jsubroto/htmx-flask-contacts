@@ -58,5 +58,5 @@ def contacts_edit_post(contact_id):
 
 @app.route("/contacts/<int:contact_id>/delete", methods=["POST"])
 def contacts_delete(contact_id):
-    # delete contact_id
+    Contact.delete_by_id(contact_id)
     return redirect("/contacts")
