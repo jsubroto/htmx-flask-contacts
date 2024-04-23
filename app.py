@@ -56,7 +56,7 @@ def contacts_edit_post(contact_id):
         return render_template("edit.html", contact=c)
 
 
-@app.route("/contacts/<int:contact_id>/delete", methods=["GET"])
+@app.route("/contacts/<int:contact_id>/delete", methods=["POST"])
 def contacts_delete(contact_id):
     # delete contact_id
     return redirect("/contacts")

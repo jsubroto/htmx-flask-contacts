@@ -18,5 +18,8 @@
 		<button class="rounded bg-slate-500 text-white hover:cursor-pointer">Save</button>
 	</fieldset>
 </form>
+<form action="/contacts/{{ contact.id }}/delete" method="post">
+	<button class="mt-2 p-2 rounded bg-red-500 text-white hover:cursor-pointer">Delete</button>
+</form>
 <a class="text-blue-500" href="/contacts">Back to contacts</a>
 {% endblock %}
