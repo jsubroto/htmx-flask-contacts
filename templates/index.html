@@ -1,6 +1,15 @@
 {% extends "layout.html" %}
 {% block content %}
 <h1 class="text-lg">Contacts</h1>
+
+<div id="main">
+
+	<button hx-get="/contacts/htmx" hx-target="#main">
+		Get The Contacts
+	</button>
+
+</div>
+
 <form action="/contacts" method="get">
 	<label for="search"></label>
 	<input class="rounded bg-slate-800 p-2" id="search" type="search" name="q" value="{{ request.args.get("q") or '' }}">

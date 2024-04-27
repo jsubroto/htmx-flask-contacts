@@ -22,6 +22,17 @@ def contacts():
     return render_template("index.html", contacts=contacts)
 
 
+@app.route("/contacts/htmx")
+def contacts_htmx():
+    return """
+    <ul>
+        <li><a href="mailto:joe@example.com">Joe</a></li>
+        <li><a href="mailto:sarah@example.com">Sarah</a></li>
+        <li><a href="mailto:fred@example.com">Fred</a></li>
+    </ul>
+    """
+
+
 @app.route("/contacts/new", methods=["GET"])
 def contacts_new_get():
     return render_template("new.html", contact=Contact())
