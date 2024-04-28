@@ -4,7 +4,7 @@
 
 <div id="main">
 
-	<button hx-get="/contacts/htmx" hx-target="#main">
+	<button hx-get="/contacts/htmx" hx-target="#main" hx-swap="outerHTML" hx-trigger="click, keyup[ctrlKey && key == 'L'] from:body">
 		Get The Contacts
 	</button>
 
