@@ -7,7 +7,7 @@
 		<script src="https://cdn.tailwindcss.com"></script>
 		<script src="/static/js/htmx.1.9.12.js"></script>
 	</head>
-	<body class="bg-black text-white m-10">
+	<body class="bg-black text-white m-10" hx-boost="true">
 		{% with messages = get_flashed_messages() %}
 			{% if messages %}
 				<ul>
