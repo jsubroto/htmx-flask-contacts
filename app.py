@@ -72,4 +72,4 @@ def contacts_post(contact_id):
 def contacts_delete(contact_id):
     Contact.delete_by_id(contact_id)
     flash("Deleted Contact")
-    return redirect("/contacts")
+    return redirect("/contacts", 303)
