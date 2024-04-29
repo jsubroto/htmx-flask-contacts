@@ -22,6 +22,7 @@
 	hx-delete="/contacts/{{ contact.id }}"
 	hx-push-url="true"
 	hx-target="body"
+	hx-confirm="Are you sure you want to delete {{ contact.first_name }} {{contact.last_name }}?"
 	class="mt-2 p-2 rounded bg-red-500 text-white hover:cursor-pointer">
 	Delete
 </button>
