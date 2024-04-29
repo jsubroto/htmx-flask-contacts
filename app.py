@@ -53,12 +53,12 @@ def contacts_view(contact_id):
 
 
 @app.route("/contacts/<int:contact_id>/edit", methods=["GET"])
-def contacts_edit_get(contact_id):
+def contacts_get(contact_id):
     return render_template("edit.html", contact=Contact.get_by_id(contact_id))
 
 
 @app.route("/contacts/<int:contact_id>/edit", methods=["POST"])
-def contacts_edit_post(contact_id):
+def contacts_post(contact_id):
     c = Contact.get_by_id(contact_id)
     c.update(request.form["firstName"], request.form["lastName"], request.form["email"], request.form["phone"])
     if c.save():
@@ -68,7 +68,7 @@ def contacts_edit_post(contact_id):
         return render_template("edit.html", contact=c)
 
 
-@app.route("/contacts/<int:contact_id>/delete", methods=["POST"])
+@app.route("/contacts/<int:contact_id>", methods=["DELETE"])
 def contacts_delete(contact_id):
     Contact.delete_by_id(contact_id)
     flash("Deleted Contact")
