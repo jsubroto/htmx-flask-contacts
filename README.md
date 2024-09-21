@@ -1,2 +1,2 @@
-# flask-contacts
-A Flask application to manage your contacts.
+# htmx-flask-contacts
+A Flask application to manage your contacts using HTMX.
